@@ -8,7 +8,7 @@ use Laravel\Nova\Filters\Filter;
 class InputFilter extends Filter
 {
     public $component = 'nova-input-filter';
-    public array $options = [];
+    public $options = [];
 
     public function __construct($options = null, $name = null)
     {
@@ -21,13 +21,6 @@ class InputFilter extends Filter
         return $query->where(function ($query) use ($search) {
             $model = $query->getModel();
             $connectionType = $query->getModel()->getConnection()->getDriverName();
-            $canSearchPrimaryKey = is_numeric($search) &&
-                in_array($query->getModel()->getKeyType(), ['int', 'integer']) && ($connectionType != 'pgsql' || $search <= PHP_INT_MAX) &&
-                in_array($query->getModel()->getKeyName(), static::$search);
-
-            if ($canSearchPrimaryKey) {
-                $query->orWhere($query->getModel()->getQualifiedKeyName(), $search);
-            }
 
             $likeOperator = $connectionType == 'pgsql' ? 'ilike' : 'like';
 
@@ -44,5 +37,15 @@ class InputFilter extends Filter
     public function options(Request $request)
     {
         return $this->options;
+    }
+
+    public function key()
+    {
+        $isUniqueClass = get_class($this) !== InputFilter::class;
+
+        if (!empty($this->name) && !$isUniqueClass)
+            return get_class($this) . str_replace(' ', '', $this->name);
+
+        return parent::key();
     }
 }
