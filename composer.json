@@ -1,0 +1,47 @@
+{
+  "name": "optimistdigital/nova-input-filter",
+  "description": "A Laravel Nova filter.",
+  "keywords": [
+    "laravel",
+    "nova",
+    "filter",
+    "laravel-nova",
+    "optimist-digital",
+    "input",
+    "search"
+  ],
+  "authors": [
+    {
+      "name": "Kaspar Rosin",
+      "email": "kaspar.rosin@gmail.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Optimist Digital",
+      "email": "info@optimistdigital.com",
+      "role": "Maintainer"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.2.0",
+    "laravel/nova": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "OptimistDigital\\NovaInputFilter\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "OptimistDigital\\NovaInputFilter\\FilterServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
