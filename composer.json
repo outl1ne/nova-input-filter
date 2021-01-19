@@ -1,6 +1,6 @@
 {
   "name": "optimistdigital/nova-input-filter",
-  "description": "A Laravel Nova filter.",
+  "description": "An input filter for Laravel Nova",
   "keywords": [
     "laravel",
     "nova",
