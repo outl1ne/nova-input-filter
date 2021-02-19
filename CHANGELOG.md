@@ -7,4 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.0.0] - 2020-12-18
 
+### Changed
+
+- Changed the padding to better match regular select filter field
+
+## [1.0.0] - 2020-12-18
+
 Initial release.
