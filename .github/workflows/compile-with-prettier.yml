@@ -20,9 +20,14 @@ jobs:
 
       - name: Run prettier
         run: npm run format
-
+        
       - name: Run eslint
         run: npm run lint
+        
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: prettier
 
       - name: Compile
         run: npm run prod
@@ -30,4 +35,4 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: prettier
+          commit_message: build assets
