@@ -4,7 +4,7 @@
       {{ filter.name }}
     </h3>
 
-    <div class="p-1">
+    <div class="p-2">
       <input
         class="block w-full form-control-sm form-input border-60"
         type="text"
