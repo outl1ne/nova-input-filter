@@ -1,4 +1,4 @@
-# Nova Simple Repeatable
+# Nova Input Filter
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/optimistdigital/nova-input-filter.svg?style=flat-square)](https://packagist.org/packages/optimistdigital/nova-input-filter)
 [![Total Downloads](https://img.shields.io/packagist/dt/optimistdigital/nova-input-filter.svg?style=flat-square)](https://packagist.org/packages/optimistdigital/nova-input-filter)
