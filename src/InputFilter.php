@@ -8,13 +8,16 @@ use Laravel\Nova\Filters\Filter;
 class InputFilter extends Filter
 {
     public $component = 'nova-input-filter';
+
     public $options = [];
 
-    public function __construct($options = null, $name = null)
-    {
-        if (!empty($options)) $this->options = $options;
-        if (!empty($name)) $this->name = $name;
-    }
+    public $inputType = 'text';
+
+    public $inputIntegersOnly = false;
+
+    public $inputMin = false;
+
+    public $inputMax = false;
 
     public function apply(Request $request, $query, $search)
     {
@@ -34,6 +37,28 @@ class InputFilter extends Filter
         });
     }
 
+    public function forColumns($columns)
+    {
+        $this->options = $columns;
+
+        return $this;
+    }
+
+    public function withName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function asNumber($number = true, $integersOnly = false)
+    {
+        $this->inputType = $number ? 'number' : 'text';
+        $this->inputIntegersOnly = $integersOnly;
+
+        return $this;
+    }
+
     public function options(Request $request)
     {
         return $this->options;
@@ -43,9 +68,19 @@ class InputFilter extends Filter
     {
         $isUniqueClass = get_class($this) !== InputFilter::class;
 
-        if (!empty($this->name) && !$isUniqueClass)
+        if ( ! empty($this->name) && ! $isUniqueClass)
             return get_class($this) . str_replace(' ', '', $this->name);
 
         return parent::key();
+    }
+
+    public function jsonSerialize()
+    {
+        return array_merge(parent::jsonSerialize(), [
+            'input_type' => $this->inputType,
+            'input_integers' => $this->inputIntegersOnly,
+            'input_min' => $this->inputMin,
+            'input_max' => $this->inputMax,
+        ]);
     }
 }
