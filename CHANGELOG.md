@@ -9,11 +9,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- Added `inputType` to allow for numbers explicitly
+- Added `inputType` to allow for numbers explicitly (huge thanks to [@TheDeadCode](https://github.com/TheDeadCode))
 
 ### Changed
 
-- Constructor parameters can now be replaced with `->forColumns([])` and `->withName()` methods
+- Constructor parameters can now be replaced with `->forColumns([])` and `->withName()` methods (huge thanks to [@TheDeadCode](https://github.com/TheDeadCode))
 - Updated packages
 
 ## [1.0.1] - 2021-02-19
