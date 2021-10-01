@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace OptimistDigital\NovaInputFilter;
 
@@ -8,16 +10,17 @@ use Laravel\Nova\Filters\Filter;
 class InputFilter extends Filter
 {
     public $component = 'nova-input-filter';
-
     public $options = [];
-
     public $inputType = 'text';
-
     public $inputIntegersOnly = false;
-
     public $inputMin = false;
-
     public $inputMax = false;
+
+    public function __construct($options = null, $name = null)
+    {
+        if (!empty($options)) $this->options = $options;
+        if (!empty($name)) $this->name = $name;
+    }
 
     public function apply(Request $request, $query, $search)
     {
@@ -39,15 +42,14 @@ class InputFilter extends Filter
 
     public function forColumns($columns)
     {
+        if (!is_array($columns)) $columns = [$columns];
         $this->options = $columns;
-
         return $this;
     }
 
     public function withName($name)
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -68,7 +70,7 @@ class InputFilter extends Filter
     {
         $isUniqueClass = get_class($this) !== InputFilter::class;
 
-        if ( ! empty($this->name) && ! $isUniqueClass)
+        if (!empty($this->name) && !$isUniqueClass)
             return get_class($this) . str_replace(' ', '', $this->name);
 
         return parent::key();
