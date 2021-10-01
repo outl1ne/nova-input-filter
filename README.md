@@ -38,7 +38,7 @@ use OptimistDigital\NovaInputFilter\InputFilter;
 public function filters(Request $request)
 {
     return [
-        InputFilter::make(['email'], 'Email'),
+        InputFilter::make()->forColumns(['email'])->withName('Email'),
     ];
 }
 ```

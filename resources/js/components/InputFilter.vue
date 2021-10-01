@@ -7,7 +7,10 @@
     <div class="p-2">
       <input
         class="block w-full form-control-sm form-input border-60"
-        type="text"
+        :type="filter.input_type"
+        :pattern="filter.input_integers ? '\\d*' : false"
+        :min="filter.input_min"
+        :max="filter.input_max"
         @input="debounceInput"
         :placeholder="filter.placeholder || filter.name"
         :value="value"
