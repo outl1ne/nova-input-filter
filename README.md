@@ -39,6 +39,10 @@ public function filters(Request $request)
 {
     return [
         InputFilter::make()->forColumns(['email'])->withName('Email'),
+
+        // Or
+
+        InputFilter::make(['email'], 'email'),
     ];
 }
 ```
