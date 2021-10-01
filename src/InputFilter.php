@@ -18,8 +18,8 @@ class InputFilter extends Filter
 
     public function __construct($options = null, $name = null)
     {
-        if (!empty($options)) $this->options = $options;
-        if (!empty($name)) $this->name = $name;
+        if (!empty($options)) $this->forColumns($options);
+        if (!empty($name)) $this->withName($name);
     }
 
     public function apply(Request $request, $query, $search)
