@@ -1,6 +1,6 @@
 <?php
 
-namespace OptimistDigital\NovaInputFilter;
+namespace Outl1ne\NovaInputFilter;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;

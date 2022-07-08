@@ -1,8 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-namespace OptimistDigital\NovaInputFilter;
+namespace Outl1ne\NovaInputFilter;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;

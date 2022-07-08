@@ -1,14 +1,14 @@
 # Nova Input Filter
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/optimistdigital/nova-input-filter.svg?style=flat-square)](https://packagist.org/packages/optimistdigital/nova-input-filter)
-[![Total Downloads](https://img.shields.io/packagist/dt/optimistdigital/nova-input-filter.svg?style=flat-square)](https://packagist.org/packages/optimistdigital/nova-input-filter)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/outl1ne/nova-input-filter.svg?style=flat-square)](https://packagist.org/packages/outl1ne/nova-input-filter)
+[![Total Downloads](https://img.shields.io/packagist/dt/outl1ne/nova-input-filter.svg?style=flat-square)](https://packagist.org/packages/outl1ne/nova-input-filter)
 
 This [Laravel Nova](https://nova.laravel.com/) package allows you to create simple input filter.
 
 ## Requirements
 
-- `php: >=7.2`
-- `laravel/nova: ^3.0`
+- `php: >=8.0`
+- `laravel/nova: ^4.0`
 
 ## Features
 
@@ -24,7 +24,7 @@ This [Laravel Nova](https://nova.laravel.com/) package allows you to create simp
 Install the package in to a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
 
 ```bash
-composer require optimistdigital/nova-input-filter
+composer require outl1ne/nova-input-filter
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ Accepts an array of columns as first parameter and filter name as second paramet
 columns: `['email', 'id']`, similarly to nova's search.
 
 ```php
-use OptimistDigital\NovaInputFilter\InputFilter;
+use Outl1ne\NovaInputFilter\InputFilter;
 
 public function filters(Request $request)
 {
@@ -54,7 +54,7 @@ the `InputFilter` class and override `apply()` function.
 
 ```php
 
-use OptimistDigital\NovaInputFilter\InputFilter;
+use Outl1ne\NovaInputFilter\InputFilter;
 
 class ExtendedInputFilter extends InputFilter
 {
