@@ -74,7 +74,7 @@ class InputFilter extends Filter
         return parent::key();
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_merge(parent::jsonSerialize(), [
             'input_type' => $this->inputType,
