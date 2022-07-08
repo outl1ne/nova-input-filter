@@ -11,7 +11,8 @@ class FilterServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-input-filter', __DIR__ . '/../dist/js/filter.js');
+            Nova::script('nova-input-filter', __DIR__ . '/../dist/js/entry.js');
+            Nova::style('nova-input-filter', __DIR__ . '/../dist/css/entry.css');
         });
     }
 }
