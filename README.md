@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/outl1ne/nova-input-filter.svg?style=flat-square)](https://packagist.org/packages/outl1ne/nova-input-filter)
 [![Total Downloads](https://img.shields.io/packagist/dt/outl1ne/nova-input-filter.svg?style=flat-square)](https://packagist.org/packages/outl1ne/nova-input-filter)
 
-This [Laravel Nova](https://nova.laravel.com/) package allows you to create simple input filter.
+This [Laravel Nova](https://nova.laravel.com/) package allows you to create simple input filters.
 
 ## Requirements
 
