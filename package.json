@@ -5,13 +5,18 @@
     "watch": "mix watch",
     "hot": "mix watch --hot",
     "prod": "mix --production",
-    "format": "prettier --write 'resources/**/*.{css,scss,js,vue}'"
+    "format": "prettier --write 'resources/**/*.{css,scss,js,vue}'",
+    "lint": "eslint resources/js --fix --ext js,vue"
   },
   "devDependencies": {
     "@inertiajs/inertia": "^0.11.0",
     "@vue/babel-plugin-jsx": "^1.1.1",
     "axios": "^0.27.2",
     "cross-env": "^7.0.3",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.2.0",
     "form-backend-validation": "^2.4.0",
     "laravel-mix": "^6.0.49",
     "postcss": "^8.4.14",
