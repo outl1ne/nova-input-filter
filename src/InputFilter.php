@@ -59,7 +59,7 @@ class InputFilter extends Filter
         return $this;
     }
 
-    public function options(Request $request)
+    public function options(NovaRequest $request)
     {
         return $this->options;
     }
