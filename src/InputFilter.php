@@ -2,8 +2,8 @@
 
 namespace Outl1ne\NovaInputFilter;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class InputFilter extends Filter
 {
@@ -20,7 +20,7 @@ class InputFilter extends Filter
         if (!empty($name)) $this->withName($name);
     }
 
-    public function apply(Request $request, $query, $search)
+    public function apply(NovaRequest $request, $query, $search)
     {
         return $query->where(function ($query) use ($search) {
             $model = $query->getModel();
