@@ -6,7 +6,7 @@
 
     <div class="p-2">
       <input
-        class="w-full block form-control form-select form-control-sm form-input-bordered"
+        class="w-full form-control form-input form-control-bordered"
         :type="filter.input_type"
         :pattern="filter.input_integers ? '\\d*' : false"
         :min="filter.input_min"
