@@ -7,8 +7,8 @@ This [Laravel Nova](https://nova.laravel.com/) package allows you to create simp
 
 ## Requirements
 
-- `php: >=8.0`
-- `laravel/nova: ^4.0`
+- `php: >=8.1`
+- `laravel/nova: ^5.0`
 
 ## Features
 
@@ -34,8 +34,11 @@ columns: `['email', 'id']`, similarly to nova's search.
 
 ```php
 use Outl1ne\NovaInputFilter\InputFilter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-public function filters(Request $request)
+// ..
+
+public function filters(NovaRequest $request): array
 {
     return [
         InputFilter::make()->forColumns(['email'])->withName('Email'),
@@ -55,12 +58,14 @@ the `InputFilter` class and override `apply()` function.
 ```php
 
 use Outl1ne\NovaInputFilter\InputFilter;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ExtendedInputFilter extends InputFilter
 {
-    public function apply(Request $request, $query, $search)
+    public function apply(NovaRequest $request, Builder $query, mixed $value)
     {
-        return $query->where('email', 'like', "%$search%");
+        return $query->where('email', 'like', "%$value%");
     }
 }
 ```

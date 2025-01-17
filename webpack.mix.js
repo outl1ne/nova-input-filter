@@ -3,6 +3,8 @@ let mix = require('laravel-mix');
 let postcss = require('postcss-import');
 let tailwindcss = require('tailwindcss');
 
+mix.extend('nova', new require('./vendor/laravel/nova-devtool'))
+
 mix
   .setPublicPath('dist')
   .js('resources/js/entry.js', 'js')
