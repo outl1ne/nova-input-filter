@@ -1,58 +1,86 @@
 {
-  "name": "outl1ne/nova-input-filter",
-  "description": "An input filter for Laravel Nova",
-  "keywords": [
-    "laravel",
-    "nova",
-    "filter",
-    "laravel-nova",
-    "outl1ne",
-    "input",
-    "search"
-  ],
-  "authors": [
-    {
-      "name": "Kaspar Rosin",
-      "email": "kaspar@outl1ne.com",
-      "role": "Developer"
+    "name": "outl1ne/nova-input-filter",
+    "description": "An input filter for Laravel Nova",
+    "keywords": [
+        "laravel",
+        "nova",
+        "filter",
+        "laravel-nova",
+        "outl1ne",
+        "input",
+        "search"
+    ],
+    "authors": [
+        {
+            "name": "Kaspar Rosin",
+            "email": "kaspar@outl1ne.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Tarvo Reinpalu",
+            "email": "tarvo@outl1ne.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Outl1ne",
+            "email": "info@outl1ne.com",
+            "role": "Maintainer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1",
+        "laravel/nova": "^5.0"
     },
-    {
-      "name": "Tarvo Reinpalu",
-      "email": "tarvo@outl1ne.com",
-      "role": "Developer"
+    "require-dev": {
+        "laravel/nova-devtool": "^1.0.1",
+        "laravel/pint": "^1.20"
     },
-    {
-      "name": "Outl1ne",
-      "email": "info@outl1ne.com",
-      "role": "Maintainer"
+    "autoload": {
+        "psr-4": {
+            "Outl1ne\\NovaInputFilter\\": "src/",
+            "App\\": "workbench/app/",
+            "Database\\Factories\\": "workbench/database/factories/",
+            "Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Outl1ne\\NovaInputFilter\\FilterServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
     }
-  ],
-  "license": "MIT",
-  "require": {
-    "php": ">=8.0",
-    "laravel/nova": "^4.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Outl1ne\\NovaInputFilter\\": "src/"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Outl1ne\\NovaInputFilter\\FilterServiceProvider"
-      ]
-    }
-  },
-  "config": {
-    "sort-packages": true
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://nova.laravel.com"
-    }
-  ]
 }
